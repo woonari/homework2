@@ -1519,8 +1519,8 @@ input 띄어쓰기 하면 자손선택임 [type='text']
         font-size: var(--fontSize);
       }
       .radio {
-        --offImage: url(/images/ico_radio_off.svg);
-        --onImage: url(/images/ico_radio_on.svg);
+        --offImage: url(../images/ico_radio_off.svg);
+        --onImage: url(../images/ico_radio_on.svg);
         --fontSize: 1.2rem;
         --beforeColor: var(--gray700);
         --afterColor:var(--gray700);
@@ -1559,8 +1559,8 @@ input 띄어쓰기 하면 자손선택임 [type='text']
         }
       }
       .checkbox {
-        --offImage: url(/images/ico_check_off.svg);
-        --onImage: url(/images/ico_check_on.svg);
+        --offImage: url(../images/ico_check_off.svg);
+        --onImage: url(../images/ico_check_on.svg);
         --fontSize: 1.2rem;
         --beforeColor: var(--gray700);
         --afterColor:var(--gray700);
