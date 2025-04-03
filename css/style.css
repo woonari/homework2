@@ -1,0 +1,1352 @@
+
+@import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css') layer(reset);
+@layer reset, print, atom, molecules, organisms, template, page, utillity;
+/* 기초정의 */
+@layer reset{
+/* @import url("https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap"); */
+}
+@layer reset{
+
+/* Reset */
+:where(
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    div,
+    p,
+    blockquote,
+    pre,
+    code,
+    address,
+    ul,
+    ol,
+    li,
+    nav,
+    section,
+    article,
+    header,
+    footer,
+    main,
+    aside,
+    dl,
+    dt,
+    dd,
+    table,
+    thead,
+    tbody,
+    tfoot,
+    label,
+    caption,
+    th,
+    td,
+    form,
+    fieldset,
+    legend,
+    hr,
+    input,
+    button,
+    textarea,
+    object,
+    figure,
+    figcaption,
+    span,
+    em,
+    strong,
+    i,
+    b,
+    u,
+    ins
+  ) {
+  margin: 0;
+  padding: 0;
+  /* font-family: "Noto Sans KR", sans-serif; */
+  font-family: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui,
+    Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic',
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+  /* font-size: var(--baseFontSize); */
+}
+
+:where(body, input, select, textarea, button, img, fieldset) {
+  border: none;
+}
+
+:where(ul, ol, li) {
+  list-style: none;
+}
+
+:where(table) {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+:where(address, cite, code, em, i) {
+  font-style: normal;
+  font-weight: normal;
+}
+
+:where(u, ins, a) {
+  text-decoration: none;
+}
+
+:where(button) {
+  background-color: unset;
+}
+
+:where(a) {
+  color: inherit;
+}
+
+:where(button, label, select, summary, [role='button'], [role='option']) {
+  cursor: pointer;
+}
+
+:where(:disabled, :disabled + label) {
+  cursor: not-allowed;
+}
+
+:where(input, button, textarea, select) {
+  font: inherit;
+  color: inherit;
+  letter-spacing: inherit;
+  word-spacing: inherit;
+  font-feature-settings: inherit;
+  font-variation-settings: inherit;
+}
+
+/* Normalize */
+:where(
+    input[type='number']::-webkit-inner-spin-button,
+    input[type='number']::-webkit-outer-spin-button
+  ) {
+  -webkit-appearance: none;
+}
+
+:where(input[type='number']) {
+  -moz-appearance: textfield;
+}
+
+:where(
+    input[type='number'],
+    input[type='text'],
+    input[type='password'],
+    input[type='url'],
+    input[type='email'],
+    input[type='tel'],
+    input[type='date'],
+    textarea
+  ) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+:where(
+    input[type='search']::-webkit-search-decoration,
+    input[type='search']::-webkit-search-cancel-button,
+    input[type='search']::-webkit-search-results-button,
+    input[type='search']::-webkit-search-results-decoration
+  ) {
+  -webkit-appearance: none;
+}
+
+:where(input[type='date']) {
+  position: relative;
+}
+:where(input[type='date']::-webkit-clear-button, input[type='date']::-webkit-inner-spin-button) {
+  display: none;
+}
+:where(input[type='date']::-webkit-calendar-picker-indicator) {
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: transparent;
+  color: transparent;
+  cursor: pointer;
+  width: 100%;
+  height: 100%;
+}
+
+:where(input[type='date']::before) {
+  content: attr(data-placeholder);
+  width: 100%;
+}
+
+:where(input[type='date']:valid::before) {
+  display: none;
+}
+
+:where(select) {
+  appearance: none;
+}
+
+:where(html) {
+  padding: 0;
+  margin: 0;
+  font-size: 62.5%;
+  -webkit-text-size-adjust: none;
+}
+
+:where(body) {
+  padding: 0;
+  margin: 0;
+  font-size: 1rem;
+}
+
+caption,
+legend,
+.a11y-hidden {
+  overflow: hidden;
+  position: absolute;
+  border: 0;
+  width: 1px;
+  height: 1px;
+  clip: rect(1px, 1px, 1px, 1px);
+}
+}
+@layer print{
+@media print {
+  .header,
+  .footer,
+  .visual {
+    display: none;
+  }
+  .page-break {
+    page-break-before: always;
+  }
+}
+@page {
+  margin: 1cm 2cm;
+}
+.print {
+  display: block;
+}
+@media screen {
+  .print {
+    display: none;
+  }
+}
+}
+/* 유틸리티 클래스 단독사용 방지용 */
+[class]:not([class*=" "]) {
+  &.xxxs,
+  &.xxs,
+  &.xs,
+  &.sm,
+  &.base,
+  &.md,
+  &.lg,
+  &.xl,
+  &.xxl,
+  &.xxxl {
+    &::after {
+      content: attr(class) "(은)는 단독으로 사용할 수 없습니다.";
+      display: block;
+      color: tomato;
+    }
+  }
+}
+/* 영역 확인용 */
+.debug {
+  * {
+    outline: 2px solid red !important;
+    * {
+      outline: 2px solid seagreen !important;
+      * {
+        outline: 2px solid slateblue !important;
+        * {
+          outline: 2px solid orange !important;
+          * {
+            outline: 2px solid salmon !important;
+          }
+        }
+      }
+    }
+  }
+}
+.debug2 {
+  * {
+    background-color: rgba(0, 0, 0, 0.05) !important;
+  }
+}
+/* 원자 */
+@layer atom.variable{
+/* -------------------------------------------------------------------------- */
+/*                                    전역CSS                                 */
+/* -------------------------------------------------------------------------- */
+:root {
+  --baseFontSize: 1.7rem;
+
+  --white: #ffffff;
+  --white60: rgba(255, 255, 255, 0.6);
+  --white20: rgba(255, 255, 255, 0.2);
+  --black: #000;
+  --black60: rgba(0, 0, 0, 0.6);
+  --black40: rgba(0, 0, 0, 0.4);
+  --black10: rgba(0, 0, 0, 0.1);
+
+  --gray900: #212121;
+  --gray850: #333333;
+  --gray800: #4b4b4b;
+  --gray700: #565656;
+  --gray600: #666666;
+  --gray500: #999999;
+  --gray400: #aaaaaa;
+  --gray300: #d7d7d7;
+  --gray200: #eaeaea;
+  --gray100: #f5f5f5;
+  --gray50: #fafafa;
+  
+
+  /* --red900: #2e0507;
+  --red800: #5c0a0f;
+  --red700: #8b0e16;
+  --red600: #b9131e; */
+  --red500: #f93232;
+  /* --red400: #ec4651; */
+  --red300: #FF6A13;
+  /* --red200: #f5a3a8;
+  --red100: #fbd6d8;  */
+
+  /* --yellow900: #4d370b;
+  --yellow800: #66490e;
+  --yellow700: #98690a;
+  --yellow600: #ffb724; */
+  --yellow500: #d8b98b;
+  /* --yellow400: #ffd47c;
+  --yellow300: #ffe2a7;
+  --yellow200: #ffeac1;
+  --yellow100: #fff8e9; */
+
+  /* --green900: #00370c;
+  --green800: #005312;
+  --green700: #006e18;
+  --green600: #008a1e;
+  --green500: #33a14b;
+  --green400: #8cca99;*/
+  --green300: #09E27C;
+  /* --green200: #cee9d4;
+  --green100: #eef7f0; */
+
+  /* --blue900: #07152f;
+  --blue800: #0e2b5e;
+  --blue700: #16408d;
+  --blue600: #1d56bc; */
+  --blue500: #1d4ed8;
+  /* --blue400: #5089ef;*/
+  --blue300: #00D4EA;
+  /* --blue200: #a7c4f7;
+  --blue100: #d3e1fb;  */
+
+  --primary: var(--blue500);
+  --secondary: var(--yellow500);
+  --danger: var(--red500);
+  /* --success: var(--green600); */
+
+  /* 
+  --font-xs: 1.2rem;
+  --font-sm: 1.2rem;
+  --font-base: 1.6rem;
+  --font-md: 1.8rem;
+  --font-lg: 2rem;
+  --font-xl: 2.2rem; 
+  */
+  --font-xxs: 1rem;
+  --font-xs: 1.1rem;
+  --font-sm: 1.2rem;
+  --font-base: 1.4rem;
+  --font-md: 1.6rem;
+  --font-lg: 2rem;
+  --font-xl: 2.4rem;
+
+/* 줄간격  */
+  --lh-sm: 1.2;
+  --lh-base: 1.5;
+  --lh-md: 1.8;
+
+  --ls-sm: -0.02rem;
+  --ls-base: 0;
+  --ls-md: 0.01rem;
+}
+}
+@layer utillity{
+/* -------------------------------------------------------------------------- */
+/*                                    Align                                   */
+/* -------------------------------------------------------------------------- */
+.align {
+  display: flex;
+}
+.align.both {
+  justify-content: space-between;
+}
+.align.right {
+  justify-content: end;
+}
+.align.center {
+  justify-content: center;
+}
+.align.vt {
+  align-items: start;
+}
+.align.vm {
+  align-items: center;
+}
+.align.vb {
+  align-items: end;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Text Color                                 */
+/* -------------------------------------------------------------------------- */
+.text-primary {
+  color: var(--primary, #000);
+}
+.text-secondary {
+  color: var(--secondary, #000);
+}
+.text-danger {
+  color: var(--danger, #000);
+}
+.text-success {
+  color: var(--success, #000);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Rounded                                  */
+/* -------------------------------------------------------------------------- */
+.rounded-base {
+  border-radius: 0.8rem;
+}
+.rounded-full {
+  border-radius: 100rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Spacing                                  */
+/* -------------------------------------------------------------------------- */
+.mt12 {
+  margin-top: 1.2rem;
+}
+.mt16 {
+  margin-top: 1.6rem;
+}
+.mt24 {
+  margin-top: 2.4rem;
+}
+.mt32 {
+  margin-top: 3.4rem;
+}
+.mt34 {
+  margin-top: 3.4rem;
+}
+/* 
+작명은 이렇게
+.mt-base
+.mt-md
+.mt-lg
+.mt-xl
+ */
+}
+@layer atom.typography{
+.text-xs {
+  color: var(--color, var(--gray850));
+  font-size: var(--fs, var(--font-xs));
+  line-height: var(--lh, var(--lh-xs));
+  letter-spacing: var(--ls, var(--ls-xs));
+  font-weight: var(--fw, 400);
+}
+.text-sm {
+  color: var(--color, var(--gray850));
+  font-size: var(--fs, var(--font-sm));
+  line-height: var(--lh, var(--lh-sm));
+  letter-spacing: var(--ls, var(--ls-sm));
+  font-weight: var(--fw, 400);
+}
+.text-base {
+  color: var(--color, var(--gray850));
+  font-size: var(--fs, var(--font-base));
+  line-height: var(--lh, var(--lh-base));
+  letter-spacing: var(--ls, var(--ls-base));
+  font-weight: var(--fw, 400);
+}
+.text-md {
+  color: var(--color, var(--gray850));
+  font-size: var(--fs, var(--font-md));
+  line-height: var(--lh, var(--lh-md));
+  letter-spacing: var(--ls, var(--ls-md));
+  font-weight: var(--fw, 400);
+}
+.text-lg {
+  color: var(--color, var(--gray850));
+  font-size: var(--fs, var(--font-lg));
+  line-height: var(--lh, var(--lh-lg));
+  letter-spacing: var(--ls, var(--ls-lg));
+  font-weight: var(--fw, 400);
+}
+.text-xl {
+  color: var(--color, var(--gray850));
+  font-size: var(--fs, var(--font-xl));
+  line-height: var(--lh, var(--lh-xl));
+  letter-spacing: var(--ls, var(--ls-xl));
+  font-weight: var(--fw, 400);
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+strong,
+b {
+  &[class*='text-'] {
+    font-weight: var(--fw, 700);
+  }
+}
+
+.link {
+  text-decoration: underline 2px;
+  text-decoration-color: red;
+  text-underline-offset: 3px;
+}
+}
+@layer atom.button{
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  justify-content: center;
+  white-space: nowrap;
+  border-radius: var(--radius, 0.8rem);
+  gap: 0.5rem;
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    크기정의                                  */
+  /* -------------------------------------------------------------------------- */
+  &.xxs {
+    --px: 1rem;
+    --py: 0.8rem;
+    --fs: 1.2rem;
+
+    padding-inline: var(--px);
+    padding-block: var(--py);
+    font-size: var(--fs, var(--font-base));
+  }
+  &.xs {
+    --px: 1.2rem;
+    --py: 0.9rem;
+    --fs: 1.4rem;
+
+    padding-inline: var(--px);
+    padding-block: var(--py);
+    font-size: var(--fs, var(--font-base));
+  }
+  &.sm {
+    --px: 2.4rem;
+    --py: 1rem;
+    --fs: 1.4rem;
+
+    padding-inline: var(--px);
+    padding-block: var(--py);
+    font-size: var(--fs, var(--font-base));
+  }
+  &.base {
+    --px: 2rem;
+    --py: 1.2rem;
+    --fs: 1.6rem;
+
+    padding-inline: var(--px);
+    padding-block: var(--py);
+    font-size: var(--fs, var(--font-base));
+  }
+  &.md {
+    --px: 1rem;
+    --py: 2.2rem;
+    --fs: 1.6rem;
+
+    padding-inline: var(--px);
+    padding-block: var(--py);
+    font-size: var(--fs, var(--font-base));
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    색상정의                                  */
+  /* -------------------------------------------------------------------------- */
+  &.primary {
+    color: var(--white);
+    background-color: var(--primary);
+  }
+  &.secondary {
+    color: var(--gray900);
+    background-color: var(--white);
+    border: 1px solid var(--gray500);
+  }
+  &.gray {
+    color: var(--white);
+    background-color: var(--gray700);
+  }
+  &.gray-outline {
+    color: var(--gray800);
+    background-color: var(--white);
+    border: 1px solid var(--gray300);
+  }
+  &.lightgray-outline {
+    color: var(--gray800);
+    background-color: var(--gray100);
+    border: 1px solid var(--gray500);
+  }
+  &:disabled {
+    opacity: 0.2;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    아이콘정의                                */
+  /* -------------------------------------------------------------------------- */
+
+  &[class*='ico'] {
+    /* [ ]ico가 붙은 모든 속성에 적용 */
+    &::after {
+      content: '';
+      width: var(--width);
+      aspect-ratio: 1; /* 종횡비 */
+      background: var(--bg) no-repeat center / contain;
+    }
+  }
+  /* 
+  &.ico3 {
+    --width: 1.6rem;
+    --bg:url();
+  } 
+  */
+  &.ico1 {
+    --width: 1.6rem;
+    --bg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2216%22%20viewBox%3D%220%200%2014%2016%22%20fill%3D%22none%22%3E%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M3%202C2.44772%202%202%202.44772%202%203V10.1707C2.31278%2010.0602%202.64936%2010%203%2010H12V2H3ZM14%201C14%200.447715%2013.5523%200%2013%200H3C1.34315%200%200%201.34315%200%203V13C0%2014.6569%201.34315%2016%203%2016H13C13.5523%2016%2014%2015.5523%2014%2015V1ZM2%2013C2%2013.5523%202.44772%2014%203%2014H12V12H3C2.44772%2012%202%2012.4477%202%2013ZM4%205C4%204.44772%204.44772%204%205%204H9C9.55229%204%2010%204.44772%2010%205C10%205.55228%209.55229%206%209%206H5C4.44772%206%204%205.55228%204%205Z%22%20fill%3D%22%23FAFAFA%22%2F%3E%20%3C%2Fsvg%3E);
+  }
+  &.ico2 {
+    --width: 1.6rem;
+    --bg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2214%22%20height%3D%2216%22%20viewBox%3D%220%200%2014%2016%22%20fill%3D%22none%22%3E%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M3%202C2.44772%202%202%202.44772%202%203V10.1707C2.31278%2010.0602%202.64936%2010%203%2010H12V2H3ZM14%201C14%200.447715%2013.5523%200%2013%200H3C1.34315%200%200%201.34315%200%203V13C0%2014.6569%201.34315%2016%203%2016H13C13.5523%2016%2014%2015.5523%2014%2015V1ZM2%2013C2%2013.5523%202.44772%2014%203%2014H12V12H3C2.44772%2012%202%2012.4477%202%2013ZM4%205C4%204.44772%204.44772%204%205%204H9C9.55229%204%2010%204.44772%2010%205C10%205.55228%209.55229%206%209%206H5C4.44772%206%204%205.55228%204%205Z%22%20fill%3D%22%23212121%22%2F%3E%20%3C%2Fsvg%3E);
+  }
+  &.ico3 {
+    --width: 1.6rem;
+    --bg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2217%22%20height%3D%2216%22%20viewBox%3D%220%200%2017%2016%22%20fill%3D%22none%22%3E%20%20%20%3Cpath%20d%3D%22M1.5%2014C1.5%2013.4477%201.94772%2013%202.5%2013H7.5C8.05228%2013%208.5%2013.4477%208.5%2014C8.5%2014.5523%208.05228%2015%207.5%2015H2.5C1.94772%2015%201.5%2014.5523%201.5%2014Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%3Cpath%20d%3D%22M1.5%202C1.5%201.44772%201.94772%201%202.5%201H14.5C15.0523%201%2015.5%201.44772%2015.5%202C15.5%202.55228%2015.0523%203%2014.5%203H2.5C1.94772%203%201.5%202.55228%201.5%202Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%3Cpath%20d%3D%22M1.5%208C1.5%207.44772%201.94772%207%202.5%207H14.5C15.0523%207%2015.5%207.44772%2015.5%208C15.5%208.55228%2015.0523%209%2014.5%209H2.5C1.94772%209%201.5%208.55228%201.5%208Z%22%20fill%3D%22%23212121%22%2F%3E%20%3C%2Fsvg%3E);
+  }
+  &.ico4 {
+    --width: 1.6rem;
+    --bg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2214%22%20viewBox%3D%220%200%2016%2014%22%20fill%3D%22none%22%3E%20%20%20%3Cpath%20d%3D%22M1%200C0.447715%200%200%200.447715%200%201C0%201.55228%200.447716%202%201%202H13C13.5523%202%2014%201.55228%2014%201C14%200.447715%2013.5523%200%2013%200H1Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%3Cpath%20d%3D%22M1%206C0.447715%206%200%206.44772%200%207C0%207.55228%200.447715%208%201%208H6C6.55228%208%207%207.55228%207%207C7%206.44772%206.55228%206%206%206H1Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%3Cpath%20d%3D%22M12%206C12.5523%206%2013%206.44772%2013%207V13C13%2013.5523%2012.5523%2014%2012%2014C11.4477%2014%2011%2013.5523%2011%2013V7C11%206.44772%2011.4477%206%2012%206Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%3Cpath%20d%3D%22M1%2012C0.447715%2012%200%2012.4477%200%2013C0%2013.5523%200.447715%2014%201%2014H4C4.55228%2014%205%2013.5523%205%2013C5%2012.4477%204.55228%2012%204%2012H1Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M8.29289%209.29289C8.68342%208.90237%209.31658%208.90237%209.70711%209.29289L12%2011.5858L14.2929%209.29289C14.6834%208.90237%2015.3166%208.90237%2015.7071%209.29289C16.0976%209.68342%2016.0976%2010.3166%2015.7071%2010.7071L12.7071%2013.7071C12.3166%2014.0976%2011.6834%2014.0976%2011.2929%2013.7071L8.29289%2010.7071C7.90237%2010.3166%207.90237%209.68342%208.29289%209.29289Z%22%20fill%3D%22%23212121%22%2F%3E%20%3C%2Fsvg%3E);
+  }
+  &.ico5 {
+    --width: 1.6rem;
+    --bg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%3E%20%20%20%3Cg%20clip-path%3D%22url%23clip0_9871_271%22%3E%20%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M11.2929%200.292893C11.6834%20-0.0976311%2012.3166%20-0.0976311%2012.7071%200.292893L15.7071%203.29289C16.0977%203.68342%2016.0977%204.31658%2015.7071%204.70711L5.70713%2014.7071C5.57897%2014.8353%205.41839%2014.9262%205.24256%2014.9701L1.24256%2015.9701C0.901782%2016.0553%200.541295%2015.9555%200.292914%2015.7071C0.0445341%2015.4587%20-0.055315%2015.0982%200.0298787%2014.7575L1.02988%2010.7575C1.07384%2010.5816%201.16476%2010.4211%201.29291%2010.2929L11.2929%200.292893ZM2.90299%2011.5112L2.37439%2013.6256L4.48877%2013.097L10.5858%207.00001L9.00001%205.41422L2.90299%2011.5112ZM13.5858%204L12%205.5858L10.4142%204.00001L12%202.41421L13.5858%204ZM9%2014C8.44771%2014%208%2014.4477%208%2015C8%2015.5523%208.44771%2016%209%2016H15C15.5523%2016%2016%2015.5523%2016%2015C16%2014.4477%2015.5523%2014%2015%2014H9Z%22%20fill%3D%22white%22%2F%3E%20%20%20%3C%2Fg%3E%20%20%20%3Cdefs%3E%20%20%20%20%20%3CclipPath%20id%3D%22clip0_9871_271%22%3E%20%20%20%20%20%20%20%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22white%22%2F%3E%20%20%20%20%20%3C%2FclipPath%3E%20%20%20%3C%2Fdefs%3E%20%3C%2Fsvg%3E);
+  }
+  &.ico6 {
+    --width: 1.2747rem;
+    --bg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2213%22%20height%3D%2212%22%20viewBox%3D%220%200%2013%2012%22%20fill%3D%22none%22%3E%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M8.57189%205.32696C8.57189%207.14174%207.10072%208.61291%205.28595%208.61291C3.47117%208.61291%202%207.14174%202%205.32696C2%203.51218%203.47117%202.04102%205.28595%202.04102C7.10072%202.04102%208.57189%203.51218%208.57189%205.32696ZM8.75223%209.31782C7.82423%2010.1245%206.61212%2010.6129%205.28595%2010.6129C2.3666%2010.6129%200%208.24631%200%205.32696C0%202.40761%202.3666%200.0410156%205.28595%200.0410156C8.20529%200.0410156%2010.5719%202.40761%2010.5719%205.32696C10.5719%206.25647%2010.332%207.12995%209.91069%207.88884C10.0693%207.93385%2010.219%208.0188%2010.3439%208.14367L12.4536%2010.2534C12.8441%2010.6439%2012.8441%2011.2771%2012.4536%2011.6676C12.0631%2012.0582%2011.4299%2012.0582%2011.0394%2011.6676L8.92966%209.55788C8.85699%209.48522%208.79785%209.40415%208.75223%209.31782Z%22%20fill%3D%22%23FAFAFA%22%2F%3E%20%3C%2Fsvg%3E);
+  }
+  &.ico7 {
+    --width: 1.6rem;
+    --bg: url(data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%3E%20%20%20%3Cg%20clip-path%3D%22%22%3E%20%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M3%203C2.44772%203%202%203.44772%202%204V13C2%2013.5523%202.44772%2014%203%2014H11C11.5523%2014%2012%2013.5523%2012%2013V8.5C12%207.94772%2012.4477%207.5%2013%207.5C13.5523%207.5%2014%207.94772%2014%208.5V13C14%2014.6569%2012.6569%2016%2011%2016H3C1.34315%2016%200%2014.6569%200%2013V4C0%202.34315%201.34315%201%203%201H6C6.55228%201%207%201.44772%207%202C7%202.55228%206.55228%203%206%203H3Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%20%20%3Cpath%20fill-rule%3D%22evenodd%22%20clip-rule%3D%22evenodd%22%20d%3D%22M12.2929%200.292893C12.6834%20-0.0976311%2013.3166%20-0.0976311%2013.7071%200.292893L15.7071%202.29289C16.0976%202.68342%2016.0976%203.31658%2015.7071%203.70711L13.7071%205.70711C13.3166%206.09763%2012.6834%206.09763%2012.2929%205.70711C11.9024%205.31658%2011.9024%204.68342%2012.2929%204.29289L12.6239%203.96191C12.5374%203.96333%2012.4495%203.9654%2012.3599%203.96825C11.4269%203.99786%2010.5283%204.11569%209.74639%204.42848C8.98532%204.73291%208.32759%205.2238%207.8453%206.03998C7.35342%206.8724%207%208.11864%207%2010C7%2010.5523%206.55228%2011%206%2011C5.44772%2011%205%2010.5523%205%2010C5%207.88136%205.39658%206.2526%206.12345%205.02252C6.85991%203.7762%207.88968%203.01709%209.00361%202.57152C10.0967%202.13431%2011.2606%202.00214%2012.2964%201.96925C12.3799%201.9666%2012.4642%201.96463%2012.549%201.96324L12.2929%201.70711C11.9024%201.31658%2011.9024%200.683417%2012.2929%200.292893Z%22%20fill%3D%22%23212121%22%2F%3E%20%20%20%3C%2Fg%3E%20%20%20%3Cdefs%3E%20%20%20%20%20%3CclipPath%20id%3D%22clip0_10073_1626%22%3E%20%20%20%20%20%20%20%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22white%22%2F%3E%20%20%20%20%20%3C%2FclipPath%3E%20%20%20%3C%2Fdefs%3E%20%3C%2Fsvg%3E);
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    아이콘전용                                */
+/* -------------------------------------------------------------------------- */
+/* 유효성 검사 */
+.icon-button {
+  --width: 4rem;
+  --rounded: 0;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: var(--width);
+  aspect-ratio: 1;
+  border-radius: var(--rounded, 0);
+  background-color: transparent;
+  cursor: pointer;
+  position: relative;
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  &:has(img:not([alt])),
+  &:has(img[alt='']) {
+    &::after {
+      content: '대체텍스트를 넣어주세요';
+      position: absolute;
+      left: 0;
+      top: -1.5rem;
+      white-space: nowrap;
+      font-size: 1.2rem;
+      color: red;
+      background-color: var(--white);
+    }
+  }
+}
+}
+@layer atom.badge{
+
+.badge {
+  --paddingX: 1rem;
+  --paddingY: 1rem;
+  --fontSize: 1.2rem;
+  --radius: 1rem;
+
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  justify-content: center;
+  padding-inline: var(--paddingX);
+  padding-block: var(--paddingY);
+  font-size: var(--fontSize, var(--font-base));
+  border-radius: var(--radius);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    색상정의                                  */
+  /* -------------------------------------------------------------------------- */
+  &.mint {
+    color: var(--white);
+    background-color: var(--blue300);
+  }
+  &.orange {
+    color: var(--white);
+    background-color: var(--red300);
+  }
+  &.green {
+    color: var(--white);
+    background-color: var(--green300);
+  }
+  &.gray {
+    color: var(--white);
+    background-color: var(--gray400);
+  }
+  &.black {
+    color: var(--white);
+    background-color: var(--black60);
+  }
+  &.white-outline {
+    color: var(--gray800);
+    background-color: var(--gray50);
+    border: 1px solid var(--gray300);
+    border-radius: 10rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    기타정의                                   */
+/* -------------------------------------------------------------------------- */
+.hit-view {
+  height: 2.4rem;
+  padding-left: 3.2rem;
+  background: url(../images/ico_hit.svg) no-repeat left;
+  align-content: center;
+  font-size: 1.1rem;
+  color: var(--gray800);
+  letter-spacing: -0.05rem;
+  line-height: 1;
+}
+.comment-view {
+  height: 2.4rem;
+  padding-left: 3.2rem;
+  background: url(../images/ico_comment.svg) no-repeat left;
+  align-content: center; /* !!new */
+  font-size: 1.1rem;
+  color: var(--gray800);
+  letter-spacing: -0.05rem;
+  line-height: 1;
+}
+}
+/* 분자 */
+@layer molecules.textfield{
+.text-field {
+  --paddingX: 1.2rem;
+  --width: 100%; /*  모바일은 무조건 가로 100% */
+  --height: 4rem;
+  --borderColor: var(--gray300);
+  --rounded: 0.4rem;
+  --fontSize: 1.4rem;
+  --color: var(--gray800);
+  --placeholderColor: var(--gray800);
+  --disabled: 0.2; /*  opacity */
+  --focusBorderColor: var(--gray500);
+
+  padding-inline: var(--paddingX);
+  padding-block: var(--paddingY, 0);
+  width: var(--width);
+  height: var(--height);
+  border: 1px solid var(--borderColor);
+  border-radius: var(--rounded);
+  box-sizing: border-box;
+  color: var(--color);
+  font-size: var(--fontSize);
+  &:focus{
+    border-color: var(--focusBorderColor);
+    /* outline: none; */
+  }
+  &::placeholder {
+    color: var(--placeholderColor);
+  }
+  &:disabled {
+    /* background-color: var(--disabledColor, 초기값); */
+    opacity: var(--disabled, 0.2);
+  }
+  &.error {
+    border: 1px solid var(--danger);
+    color: var(--danger);
+  }
+}
+textarea {
+  &.text-field {
+    --width: 100%;
+    --height: 10rem;
+    --paddingY: 1rem;
+  }
+}
+}
+@layer molecules.radio{
+.radio {
+  --offImage: url(/images/ico_radio_off.svg);
+  --onImage: url(/images/ico_radio_on.svg);
+  --fontSize: 19px;
+  --beforeColor: var(--gray700);
+  --afterColor:var(--gray700);
+  --pl: 3rem;
+  --height: 2.4rem;
+
+  display: inline-flex;
+  align-items: center;
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    &:checked {
+      + label {
+        color: var(--afterColor);
+        background: var(--onImage) no-repeat left;
+      }
+    }
+    &:focus {
+      + label {
+        outline: 2px solid #000;
+        border-radius: 2px;
+      }
+    }
+  }
+  label {
+    padding-left: var(--pl);
+    background: var(--offImage) no-repeat left;
+    font-size: var(--fontSize);
+    color: var(--beforeColor);
+    height: var(--height);
+    align-content: center;
+  }
+}
+}
+@layer molecules.checkbox{
+.checkbox {
+  --offImage: url(/images/ico_check_off.svg);
+  --onImage: url(/images/ico_check_on.svg);
+  --fontSize: 15px;
+  --beforeColor: var(--gray700);
+  --afterColor:var(--gray700);
+  --pl: 3rem;
+  --height: 2.4rem;
+
+  display: inline-flex;
+  align-items: center;
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+    &:checked {
+      + label { /* 인접한 형제를 선택해라 */
+        color: var(--afterColor);
+        background: var(--onImage) no-repeat left;
+      }
+    }
+    &:focus {
+      + label { 
+        outline: 2px solid #000;
+        border-radius: 2px;
+      }
+    }
+    &:disabled {
+      + label {
+        opacity: 0.2;
+      }
+    }
+  }
+  label {
+    padding-left: var(--pl);
+    background: var(--offImage) no-repeat left;
+    font-size: var(--fontSize);
+    color: var(--beforeColor);
+    height: var(--height);
+    align-content: center;
+  }
+}
+}
+@layer molecules.select{
+.select {
+  --height: 4rem;
+  --pl: 1.2rem;
+  --pr: 3.95rem;
+  --rounded: 4px;
+  --borderColor: var(--gray300);
+  --arrowImage: url(../images/ico_select.svg);
+  --bgColor: var(--white);
+  --fontSize: 1.4rem;
+  --fontColor: var(--gray800);
+
+  height: var(--height);
+  padding-inline: var(--pl) var(--pr);
+  border-radius: var(--rounded);
+  border: 1px solid var(--borderColor);
+  background: var(--arrowImage) no-repeat right var(--pl) center var(--bgColor);
+  color: var(--fontColor);
+  font-size: var(--fontSize);
+  appearance: none;
+}
+}
+@layer molecules.switch{
+.switch {
+  --width: 100px;
+  --height: 40px;
+  --padding: 2px;
+  --borderColor: gray;
+  --offColor: silver;
+  --offBgColor: rgba(0, 0, 0, 0.05);
+  --onColor: lightgreen;
+  --onBgColor: green;
+  --textColor: #000;
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(1px, 1px, 1px, 1px);
+
+    &:checked {
+      + label {
+        background-color: var(--onBgColor);
+        justify-content: start;
+
+        &::before {
+          left: 100%;
+          translate: calc(-100% - 2px) -50%;
+          background-color: var(--onColor);
+        }
+        &::after {
+          content: attr(data-on);
+        }
+      }
+    }
+    &:focus {
+      + label {
+        outline: 2px solid #000;
+      }
+    }
+  }
+  label {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    border-radius: var(--width);
+    width: var(--width);
+    height: var(--height);
+    padding: var(--padding) calc(var(--padding) * 4);
+    border: 1px solid var(--borderColor);
+    align-items: center;
+    justify-content: end;
+    transition: 0.4s;
+    background-color: var(--offBgColor);
+    box-sizing: border-box;
+    &::before {
+      --left: var(--padding);
+      --cricle: calc(var(--height) - (var(--left) * 3));
+
+      content: '';
+      position: absolute;
+      left: var(--left);
+      top: 50%;
+      translate: 0 -50%;
+      width: var(--cricle);
+      height: var(--cricle);
+      border-radius: 100%;
+      background-color: var(--offColor);
+      transition: 0.4s;
+    }
+    &::after {
+      content: attr(data-off);
+      text-align: center;
+      white-space: nowrap;
+      line-height: 1;
+      transition: 0.4s;
+      color: var(--textColor);
+    }
+  }
+}
+}
+@layer molecules.chip{
+.chip {
+  --borderOnColor: #000;
+  --borderOffColor: #000;
+  --fontOnColor: #fff;
+  --fontOffColor: #000;
+  --bgOnColor: #000;
+  --bgOffColor: #fff;
+  --px: 10px;
+  --py: 4px;
+  --fontSize: 16px;
+  --rounded: 100px;
+  --gap: 5px;
+
+  display: flex;
+  align-items: center;
+  gap: var(--gap);
+
+  input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    &:checked {
+      + label {
+        border-color: var(--borderOnColor);
+        background-color: var(--bgOnColor);
+        color: var(--fontOnColor);
+      }
+    }
+    &:focus {
+      + label {
+        outline: 2px solid #000;
+        outline-offset: 2px;
+      }
+    }
+  }
+  label {
+    padding: var(--py) var(--px);
+    border: 1px solid var(--borderOffColor);
+    background-color: var(--bgOffColor);
+    border-radius: var(--rounded);
+    font-size: var(--fontSize);
+    color: var(--fontOffColor);
+  }
+}
+}
+@layer molecules.floatingLabel{
+.floating-label {
+  position: relative;
+  font-size: 16px;
+  input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--gray700);
+    font-size: 16px;
+    box-sizing: border-box;
+  }
+  label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    transition: 0.3s ease-out;
+    color: var(--gray600);
+    background-color: white;
+  }
+  input:focus + label,
+  input:not(:placeholder-shown) + label {
+    top: -10px;
+    font-size: 12px;
+    color: var(--blue400);
+    padding: 4px 10px;
+  }
+}
+}
+@layer molecules.date{
+input[type='date'] {
+  --bg: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="%23000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>');
+  --paddingRight: 1.5rem;
+  --paddingLeft: 0.5rem;
+  --height: 4rem;
+  --rounded: 0.3rem;
+  --borderColor: var(--gray400);
+
+  position: relative;
+  padding-inline: var(--paddingLeft) var(--paddingRight);
+  border: 1px solid var(--borderColor);
+  height: var(--height);
+  border-radius: var(--rounded);
+
+  &::-webkit-calendar-picker-indicator {
+    position: absolute;
+    inset: 0;
+    background: none;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  &::after {
+    content: attr(data-placeholder);
+    position: absolute;
+    left: var(--paddingLeft);
+    top: 50%;
+    translate: 0 -50%;
+  }
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: no-repeat right 0.2rem center / 2.5rem auto #fff;
+    background-image: var(--bg);
+  }
+  &:valid {
+    &::after {
+      display: none;
+    }
+    &::before {
+      background-color: transparent;
+    }
+  }
+}
+}
+@layer molecules.pipe{
+.pipe-type1 {
+  --width: 0.1px;
+  --height: 1.4px;
+  --marginX: 1.2rem;
+  --bg: var(--white20);
+
+  display: flex;
+  align-items: center;
+  > * {
+    display: flex;
+    align-items: center;
+    + * {
+      &::before {
+        content: '';
+        width: var(--width);
+        height: var(--height);
+        margin-inline: var(--marginX);
+        background: var(--bg);
+      }
+    }
+  }
+}
+.pipe-type2 {
+  --width: 0.6rem;
+  --height: 1.1rem;
+  --marginX: 0.8rem;
+  --bg: url(../images/ico_type2.svg) no-repeat center / contain;
+
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  color: inherit;
+
+  > * {
+    display: flex;
+    align-items: center;
+    font-size: inherit;
+    color: inherit;
+    + * {
+      &::before {
+        content: '';
+        width: var(--width);
+        height: var(--height);
+        margin-inline: var(--marginX);
+        background: var(--bg);
+      }
+    }
+  }
+}
+/* 
+  > * 어떤 태그 아무나 선택(모든태그)
+  + 형제에게만 적용(첫번째는 적용안됨) 
+  ~
+*/
+}
+@layer molecules.tab{
+.tab-type1 {
+  display: flex;
+  > li {
+    flex: 1;
+  }
+  button {
+    width: 100%;
+    padding-block: 1.4rem;
+    font-size: 1.4rem;
+    color: var(--gray900);
+    line-height: 1;
+    letter-spacing: -0.05rem;
+    border-bottom: 0.2rem solid var(--gray200);
+  }
+  .active {
+    button {
+      color: var(--primary);
+      font-weight: 700;
+      border-color: var(--primary);
+    }
+  }
+}
+}
+/* 유기체 */
+@layer organisms.table{
+table {
+  &.mx16 {
+    width: calc(100% - 3.2rem);
+  }
+}
+.table-type1 {
+  th,
+  td {
+    border: 1px solid var(--gray400);
+  }
+}
+.table-type2 {
+  border-top: 1px solid var(--gray200);
+  th,
+  td {
+    padding-block: 1.6rem;
+    border-bottom: 1px solid var(--gray200);
+  }
+  th {
+    color: var(--gray900);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.05rem;
+    font-size: 1.4rem;
+    text-align: left;
+  }
+  td {
+    color: var(--gray800);
+    font-weight: 400;
+    line-height: 1;
+    letter-spacing: -0.05rem;
+    font-size: 1.4rem;
+  }
+}
+}
+@layer organisms.information{
+.post-information {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+}
+@layer organisms.header{
+.header {
+  display: grid;
+  grid-template-columns: 5rem 1fr 5rem;
+  align-items: center;
+  padding-inline: 2rem;
+  height: 4.4rem;
+  border-bottom: 0.1rem solid var(--primary);
+
+  h1 {
+    justify-self: center;
+  }
+  > div {
+    display: flex;
+    gap: 1.6rem;
+    &:first-child {
+      justify-self: start;
+    }
+    &:last-child {
+      justify-self: end;
+    }
+  }
+  .icon-button {
+    --width: 1.6rem;
+  }
+  &.primary {
+    background-color: var(--primary);
+    h1 {
+      color: var(--white);
+    }
+  }
+}
+}
+@layer organisms.footer{
+.footer {
+  display: grid;
+  gap: 1.66rem;
+  padding-block: 3.3rem;
+  border-top: 0.2rem solid var(--primary);
+  background-color: var(--gray600);
+  font-size: 1.1rem;
+  color: var(--white);
+  text-align: center;
+  .pipe-type1 {
+    justify-self: center;
+  }
+}
+}
+@layer organisms.tag{
+.tag {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+}
+}
+@layer organisms.formgroup{
+.tel {
+  display: flex;
+  gap: 0.8rem;
+  > * {
+    flex: 1;
+  }
+}
+.address {
+  display: grid;
+  grid-template-columns: 1fr min-content;
+  gap: 0.4rem 1rem;
+  input[type='text'] {
+    grid-column: 1/ -1;
+  }
+}
+
+/* 
+input 띄어쓰기 하면 자손선택임 [type='text']
+*/
+}
+@layer organisms.buttongroup{
+
+.btn-group {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  gap: 0.4rem;
+}
+
+.fixed {
+  position: fixed;
+  inset: auto 0 0;
+  padding: 2rem 1.5rem 2.4rem;
+  /* background-color: var(--white); */
+  background: transparent;
+}
+}
+/* 템플릿 */
+/* 페이지 */

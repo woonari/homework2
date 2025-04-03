@@ -1,0 +1,5 @@
+.post-information {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}

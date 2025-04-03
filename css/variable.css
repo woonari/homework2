@@ -1,0 +1,97 @@
+/* -------------------------------------------------------------------------- */
+/*                                    전역CSS                                 */
+/* -------------------------------------------------------------------------- */
+:root {
+  --baseFontSize: 1.7rem;
+
+  --white: #ffffff;
+  --white60: rgba(255, 255, 255, 0.6);
+  --white20: rgba(255, 255, 255, 0.2);
+  --black: #000;
+  --black60: rgba(0, 0, 0, 0.6);
+  --black40: rgba(0, 0, 0, 0.4);
+  --black10: rgba(0, 0, 0, 0.1);
+
+  --gray900: #212121;
+  --gray850: #333333;
+  --gray800: #4b4b4b;
+  --gray700: #565656;
+  --gray600: #666666;
+  --gray500: #999999;
+  --gray400: #aaaaaa;
+  --gray300: #d7d7d7;
+  --gray200: #eaeaea;
+  --gray100: #f5f5f5;
+  --gray50: #fafafa;
+  
+
+  /* --red900: #2e0507;
+  --red800: #5c0a0f;
+  --red700: #8b0e16;
+  --red600: #b9131e; */
+  --red500: #f93232;
+  /* --red400: #ec4651; */
+  --red300: #FF6A13;
+  /* --red200: #f5a3a8;
+  --red100: #fbd6d8;  */
+
+  /* --yellow900: #4d370b;
+  --yellow800: #66490e;
+  --yellow700: #98690a;
+  --yellow600: #ffb724; */
+  --yellow500: #d8b98b;
+  /* --yellow400: #ffd47c;
+  --yellow300: #ffe2a7;
+  --yellow200: #ffeac1;
+  --yellow100: #fff8e9; */
+
+  /* --green900: #00370c;
+  --green800: #005312;
+  --green700: #006e18;
+  --green600: #008a1e;
+  --green500: #33a14b;
+  --green400: #8cca99;*/
+  --green300: #09E27C;
+  /* --green200: #cee9d4;
+  --green100: #eef7f0; */
+
+  /* --blue900: #07152f;
+  --blue800: #0e2b5e;
+  --blue700: #16408d;
+  --blue600: #1d56bc; */
+  --blue500: #1d4ed8;
+  /* --blue400: #5089ef;*/
+  --blue300: #00D4EA;
+  /* --blue200: #a7c4f7;
+  --blue100: #d3e1fb;  */
+
+  --primary: var(--blue500);
+  --secondary: var(--yellow500);
+  --danger: var(--red500);
+  /* --success: var(--green600); */
+
+  /* 
+  --font-xs: 1.2rem;
+  --font-sm: 1.2rem;
+  --font-base: 1.6rem;
+  --font-md: 1.8rem;
+  --font-lg: 2rem;
+  --font-xl: 2.2rem; 
+  */
+  --font-xxs: 1rem;
+  --font-xs: 1.1rem;
+  --font-sm: 1.2rem;
+  --font-base: 1.4rem;
+  --font-md: 1.6rem;
+  --font-lg: 2rem;
+  --font-xl: 2.4rem;
+
+/* 줄간격  */
+  --lh-sm: 1.2;
+  --lh-base: 1.5;
+  --lh-md: 1.8;
+
+  --ls-sm: -0.02rem;
+  --ls-base: 0;
+  --ls-md: 0.01rem;
+}

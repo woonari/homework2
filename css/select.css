@@ -1,0 +1,20 @@
+.select {
+  --height: 4rem;
+  --pl: 1.2rem;
+  --pr: 3.95rem;
+  --rounded: 4px;
+  --borderColor: var(--gray300);
+  --arrowImage: url(../images/ico_select.svg);
+  --bgColor: var(--white);
+  --fontSize: 1.4rem;
+  --fontColor: var(--gray800);
+
+  height: var(--height);
+  padding-inline: var(--pl) var(--pr);
+  border-radius: var(--rounded);
+  border: 1px solid var(--borderColor);
+  background: var(--arrowImage) no-repeat right var(--pl) center var(--bgColor);
+  color: var(--fontColor);
+  font-size: var(--fontSize);
+  appearance: none;
+}

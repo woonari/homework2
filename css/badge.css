@@ -1,0 +1,70 @@
+.badge {
+  --paddingX: 1rem;
+  --paddingY: 1rem;
+  --fontSize: 1.2rem;
+  --radius: 1rem;
+
+  display: inline-flex;
+  align-items: center;
+  box-sizing: border-box;
+  text-align: center;
+  justify-content: center;
+  padding-inline: var(--paddingX);
+  padding-block: var(--paddingY);
+  font-size: var(--fontSize, var(--font-base));
+  border-radius: var(--radius);
+
+  /* -------------------------------------------------------------------------- */
+  /*                                    색상정의                                  */
+  /* -------------------------------------------------------------------------- */
+  &.mint {
+    color: var(--white);
+    background-color: var(--blue300);
+  }
+  &.orange {
+    color: var(--white);
+    background-color: var(--red300);
+  }
+  &.green {
+    color: var(--white);
+    background-color: var(--green300);
+  }
+  &.gray {
+    color: var(--white);
+    background-color: var(--gray400);
+  }
+  &.black {
+    color: var(--white);
+    background-color: var(--black60);
+  }
+  &.white-outline {
+    color: var(--gray800);
+    background-color: var(--gray50);
+    border: 1px solid var(--gray300);
+    border-radius: 10rem;
+  }
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                    기타정의                                   */
+/* -------------------------------------------------------------------------- */
+.hit-view {
+  height: 2.4rem;
+  padding-left: 3.2rem;
+  background: url(../images/ico_hit.svg) no-repeat left;
+  align-content: center;
+  font-size: 1.1rem;
+  color: var(--gray800);
+  letter-spacing: -0.05rem;
+  line-height: 1;
+}
+.comment-view {
+  height: 2.4rem;
+  padding-left: 3.2rem;
+  background: url(../images/ico_comment.svg) no-repeat left;
+  align-content: center; /* !!new */
+  font-size: 1.1rem;
+  color: var(--gray800);
+  letter-spacing: -0.05rem;
+  line-height: 1;
+}

@@ -1,0 +1,85 @@
+/* -------------------------------------------------------------------------- */
+/*                                    Align                                   */
+/* -------------------------------------------------------------------------- */
+.align {
+  display: flex;
+}
+.align.both {
+  justify-content: space-between;
+}
+.align.right {
+  justify-content: end;
+}
+.align.center {
+  justify-content: center;
+}
+.align.vt {
+  align-items: start;
+}
+.align.vm {
+  align-items: center;
+}
+.align.vb {
+  align-items: end;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-left {
+  text-align: left;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                 Text Color                                 */
+/* -------------------------------------------------------------------------- */
+.text-primary {
+  color: var(--primary, #000);
+}
+.text-secondary {
+  color: var(--secondary, #000);
+}
+.text-danger {
+  color: var(--danger, #000);
+}
+.text-success {
+  color: var(--success, #000);
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Rounded                                  */
+/* -------------------------------------------------------------------------- */
+.rounded-base {
+  border-radius: 0.8rem;
+}
+.rounded-full {
+  border-radius: 100rem;
+}
+
+/* -------------------------------------------------------------------------- */
+/*                                   Spacing                                  */
+/* -------------------------------------------------------------------------- */
+.mt12 {
+  margin-top: 1.2rem;
+}
+.mt16 {
+  margin-top: 1.6rem;
+}
+.mt24 {
+  margin-top: 2.4rem;
+}
+.mt32 {
+  margin-top: 3.4rem;
+}
+.mt34 {
+  margin-top: 3.4rem;
+}
+/* 
+작명은 이렇게
+.mt-base
+.mt-md
+.mt-lg
+.mt-xl
+ */

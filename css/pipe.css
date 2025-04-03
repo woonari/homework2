@@ -1,0 +1,54 @@
+.pipe-type1 {
+  --width: 0.1px;
+  --height: 1.4px;
+  --marginX: 1.2rem;
+  --bg: var(--white20);
+
+  display: flex;
+  align-items: center;
+  > * {
+    display: flex;
+    align-items: center;
+    + * {
+      &::before {
+        content: '';
+        width: var(--width);
+        height: var(--height);
+        margin-inline: var(--marginX);
+        background: var(--bg);
+      }
+    }
+  }
+}
+.pipe-type2 {
+  --width: 0.6rem;
+  --height: 1.1rem;
+  --marginX: 0.8rem;
+  --bg: url(../images/ico_type2.svg) no-repeat center / contain;
+
+  display: flex;
+  align-items: center;
+  font-size: inherit;
+  color: inherit;
+
+  > * {
+    display: flex;
+    align-items: center;
+    font-size: inherit;
+    color: inherit;
+    + * {
+      &::before {
+        content: '';
+        width: var(--width);
+        height: var(--height);
+        margin-inline: var(--marginX);
+        background: var(--bg);
+      }
+    }
+  }
+}
+/* 
+  > * 어떤 태그 아무나 선택(모든태그)
+  + 형제에게만 적용(첫번째는 적용안됨) 
+  ~
+*/
