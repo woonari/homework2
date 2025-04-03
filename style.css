@@ -1,4 +1,4 @@
-@layer reset, print, atom, molecules, organisms, template, page, utillity;
+@layer reset, print, atom, molecules, template, organisms, template, page, title, utillity;
 
 /* 기초정의 */
 @import url(./css/reset.css) layer(reset);
@@ -36,5 +36,6 @@
 @import url(./css/title.css) layer(organisms.title);
 
 /* 템플릿 */
+@import url(./css/template.css) layer(organisms.template);
 /* 페이지 */
-/* 페이지 */
+

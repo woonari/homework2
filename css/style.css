@@ -436,11 +436,17 @@ legend,
 /* -------------------------------------------------------------------------- */
 /*                                   Spacing                                  */
 /* -------------------------------------------------------------------------- */
+.mt8 {
+  margin-top: .8rem;
+}
 .mt12 {
   margin-top: 1.2rem;
 }
 .mt16 {
   margin-top: 1.6rem;
+}
+.mt21 {
+  margin-top: 2.1rem;
 }
 .mt24 {
   margin-top: 2.4rem;
@@ -450,6 +456,9 @@ legend,
 }
 .mt34 {
   margin-top: 3.4rem;
+}
+.mt48 {
+  margin-top: rem;
 }
 .mx16  {
   width: calc(100% - 3.2rem);
@@ -1487,4 +1496,113 @@ input 띄어쓰기 하면 자손선택임 [type='text']
 }
 
 /* 템플릿 */
+@layer organisms.template{
+
+  .layoutA {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 0.4rem;
+
+    .title {
+      --fontSize: 1.4rem;
+
+      font-size: var(--fontSize);
+    }
+    .contents{
+      --fontSize: 1.2rem;
+
+      font-size: var(--fontSize);
+      p {
+        font-size: var(--fontSize);
+      }
+      .radio {
+        --offImage: url(/images/ico_radio_off.svg);
+        --onImage: url(/images/ico_radio_on.svg);
+        --fontSize: 1.2rem;
+        --beforeColor: var(--gray700);
+        --afterColor:var(--gray700);
+        --pl: 2.4rem;
+        --height: 2rem;
+      
+        display: inline-flex;
+        align-items: center;
+      
+        input {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(1px, 1px, 1px, 1px);
+          &:checked {
+            + label {
+              color: var(--afterColor);
+              background: var(--onImage) no-repeat left;
+            }
+          }
+          &:focus {
+            + label {
+              outline: 2px solid #000;
+              border-radius: 2px;
+            }
+          }
+        }
+        label {
+          padding-left: var(--pl);
+          background: var(--offImage) no-repeat left;
+          font-size: var(--fontSize);
+          color: var(--beforeColor);
+          height: var(--height);
+          align-content: center;
+        }
+      }
+      .checkbox {
+        --offImage: url(/images/ico_check_off.svg);
+        --onImage: url(/images/ico_check_on.svg);
+        --fontSize: 1.2rem;
+        --beforeColor: var(--gray700);
+        --afterColor:var(--gray700);
+        --pl: 2.4rem;
+        --height: 2rem;
+      
+        display: inline-flex;
+        align-items: center;
+      
+        input {
+          position: absolute;
+          width: 1px;
+          height: 1px;
+          overflow: hidden;
+          clip: rect(1px, 1px, 1px, 1px);
+          &:checked {
+            + label { /* 인접한 형제를 선택해라 */
+              color: var(--afterColor);
+              background: var(--onImage) no-repeat left;
+            }
+          }
+          &:focus {
+            + label { 
+              outline: 2px solid #000;
+              border-radius: 2px;
+            }
+          }
+          &:disabled {
+            + label {
+              opacity: 0.2;
+            }
+          }
+        }
+        label {
+          padding-left: var(--pl);
+          background: var(--offImage) no-repeat left;
+          font-size: var(--fontSize);
+          color: var(--beforeColor);
+          height: var(--height);
+          align-content: center;
+        }
+      }
+    }
+
+  }
+  
+}
 /* 페이지 */
