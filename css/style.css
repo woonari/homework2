@@ -458,7 +458,10 @@ legend,
   margin-top: 3.4rem;
 }
 .mt48 {
-  margin-top: rem;
+  margin-top: 4.8rem;
+}
+.mb100 {
+  margin-bottom: 10rem;
 }
 .mx16  {
   width: calc(100% - 3.2rem);
