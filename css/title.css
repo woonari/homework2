@@ -1,0 +1,13 @@
+.title-board {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin-top: .6rem;
+    border-bottom: 1px solid var(--gray500);
+    padding: .5rem 0;
+    
+    span{
+      font-weight: 600;
+    }
+  }

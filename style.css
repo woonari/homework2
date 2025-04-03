@@ -28,10 +28,12 @@
 @import url(./css/table.css) layer(organisms.table);
 @import url(./css/information.css) layer(organisms.information);
 @import url(./css/header.css) layer(organisms.header);
+@import url(./css/main.css) layer(organisms.main);
 @import url(./css/footer.css) layer(organisms.footer);
 @import url(./css/tag.css) layer(organisms.tag);
 @import url(./css/formgroup.css) layer(organisms.formgroup);
 @import url(./css/buttongroup.css) layer(organisms.buttongroup);
+@import url(./css/title.css) layer(organisms.title);
 
 /* 템플릿 */
 /* 페이지 */

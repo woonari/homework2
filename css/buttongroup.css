@@ -11,3 +11,8 @@
   /* background-color: var(--white); */
   background: transparent;
 }
+
+.btn-wide {
+  display: grid;
+  grid-column: 1 / -1;
+}
